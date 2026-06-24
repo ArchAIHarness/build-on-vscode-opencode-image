@@ -1,0 +1,17 @@
+.git/
+node_modules/
+.opencode/node_modules/
+.env
+.env.*
+.DS_Store
+*.log
+kubeconfig*
+*.kubeconfig
+.kube/
+**/.kube/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+README.md

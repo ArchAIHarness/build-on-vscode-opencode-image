@@ -1,0 +1,14 @@
+node_modules/
+.opencode/node_modules/
+.env
+.env.*
+.DS_Store
+*.log
+kubeconfig*
+*.kubeconfig
+.kube/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
