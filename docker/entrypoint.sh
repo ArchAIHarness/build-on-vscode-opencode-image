@@ -85,6 +85,11 @@ seed_workspace
 
 log "node: $(node --version 2>/dev/null || echo n/a) | opencode: $(opencode --version 2>/dev/null || echo n/a)"
 
+# ---- 启动 opencode web（后台，供 /agent/* API 代理） ----
+OPENCODE_PORT="${OPENCODE_PORT:-4096}"
+opencode web --port "${OPENCODE_PORT}" --hostname 0.0.0.0 --pure &
+log "opencode web started on port ${OPENCODE_PORT} (background)"
+
 # ---- 组装 code-server 启动参数 ----
 ARGS=(
     --bind-addr "${BIND_ADDR}"
@@ -103,5 +108,5 @@ else
     ARGS+=("${WORKSPACE_DIR}")
 fi
 
-log "starting code-server: ${ARGS[*]}"
+log "starting code-server (VSCode): ${ARGS[*]}"
 exec /usr/bin/entrypoint.sh "${ARGS[@]}"
